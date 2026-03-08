@@ -30,7 +30,10 @@
         "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200"
       ],
       "tags": ["природа", "горы", "Европа"],
-      "location": { "city": "Швейцарские Альпы", "country": "Швейцария" },
+      "location": {
+        "city": { "ru": "Швейцарские Альпы", "en": "Swiss Alps", "de": "Schweizer Alpen" },
+        "country": { "ru": "Швейцария", "en": "Switzerland", "de": "Schweiz" }
+      },
       "date": "2024-10-15",
       "featured": true
     },
@@ -42,7 +45,10 @@
       "body": { "ru": "Гранд-базар — это лабиринт. Запахи специй, звон посуды, разговоры на десятке языков. Совет: заходите с одной из боковых улиц, а не с главного входа — меньше толпа. Обязательно попробуйте турецкий чай и лукум в маленькой лавке у фонтана. Торговаться можно и нужно, но вежливо.", "en": "The Grand Bazaar is a labyrinth. Spice smells, clinking crockery, conversations in a dozen languages. Tip: enter from one of the side streets, not the main gate — fewer crowds. Be sure to try Turkish tea and lokum at a small shop by the fountain. Haggling is possible and expected, but keep it polite.", "de": "Der Große Basar ist ein Labyrinth. Gewürzgerüche, klirrendes Geschirr, Gespräche in einem Dutzend Sprachen. Tipp: Betreten Sie ihn von einer der Seitenstraßen, nicht vom Haupteingang — weniger Gedränge. Probieren Sie unbedingt türkischen Tee und Lokum in einem kleinen Laden am Brunnen. Feilschen ist möglich und erwartet, aber höflich." },
       "images": [],
       "tags": ["город", "Турция", "еда"],
-      "location": { "city": "Стамбул", "country": "Турция" },
+      "location": {
+        "city": { "ru": "Стамбул", "en": "Istanbul", "de": "Istanbul" },
+        "country": { "ru": "Турция", "en": "Turkey", "de": "Türkei" }
+      },
       "date": "2024-09-01",
       "featured": false
     },
@@ -57,15 +63,12 @@
         "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200"
       ],
       "tags": ["природа", "горы", "Россия"],
-      "location": { "city": "Кавказ", "country": "Россия" },
+      "location": {
+        "city": { "ru": "Кавказ", "en": "Caucasus", "de": "Kaukasus" },
+        "country": { "ru": "Россия", "en": "Russia", "de": "Russland" }
+      },
       "date": "2024-08-20",
       "featured": false
     }
-  ],
-  "gallery": [
-    { "id": "g1", "src": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200", "alt": { "ru": "Горный пейзаж", "en": "Mountain view", "de": "Bergblick" }, "location": { "city": "Альпы", "country": "Швейцария" }, "postId": "alps-autumn" },
-    { "id": "g2", "src": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200", "alt": { "ru": "Вершина", "en": "Summit", "de": "Gipfel" }, "location": { "city": "Альпы", "country": "Швейцария" }, "postId": "alps-autumn" },
-    { "id": "g3", "src": "https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?w=1200", "alt": { "ru": "Озеро в горах", "en": "Mountain lake", "de": "Bergsee" }, "location": { "city": "Кавказ", "country": "Россия" }, "postId": "caucasus-lakes" },
-    { "id": "g4", "src": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200", "alt": { "ru": "Тропа", "en": "Trail", "de": "Wanderweg" }, "location": { "city": "Кавказ", "country": "Россия" }, "postId": "caucasus-lakes" }
   ]
 }

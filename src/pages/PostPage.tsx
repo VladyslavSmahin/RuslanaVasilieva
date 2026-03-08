@@ -1,6 +1,6 @@
 import { useParams, Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { getLocalized } from '../utils/lang'
+import { getLocalized, getLocationLabel } from '../utils/lang'
 import type { ContentData } from '../data/types'
 import styles from './PostPage.module.css'
 
@@ -39,8 +39,8 @@ export default function PostPage({ data }: PostPageProps) {
               { year: 'numeric', month: 'long', day: 'numeric' }
             )}
           </time>
-          {post.location?.city && (
-            <span className={styles.location}>{post.location.city}, {post.location.country}</span>
+          {post.location && (
+            <span className={styles.location}>{getLocationLabel(post.location, lang)}</span>
           )}
           <h1 className={styles.title}>{title}</h1>
           {post.tags?.length > 0 && (

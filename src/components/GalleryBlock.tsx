@@ -1,14 +1,16 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import type { GalleryItem } from '../data/types'
+import { getLocationLabel } from '../utils/lang'
+import type { GalleryItemFromPost } from '../data/types'
 import styles from './GalleryBlock.module.css'
 
 interface GalleryBlockProps {
-  items: GalleryItem[]
+  items: GalleryItemFromPost[]
   limit?: number
+  lang: string
 }
 
-export default function GalleryBlock({ items, limit = 6 }: GalleryBlockProps) {
+export default function GalleryBlock({ items, limit = 6, lang }: GalleryBlockProps) {
   const { t } = useTranslation()
   const show = items.slice(0, limit)
 
@@ -28,7 +30,7 @@ export default function GalleryBlock({ items, limit = 6 }: GalleryBlockProps) {
             className={styles.item}
           >
             <img src={item.src} alt="" loading="lazy" />
-            <span className={styles.caption}>{item.location.city}</span>
+            <span className={styles.caption}>{getLocationLabel(item.location, lang)}</span>
           </Link>
         ))}
       </div>

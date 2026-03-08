@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
+import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
 import { getLocalized } from '../utils/lang'
+import { buildGalleryFromPosts } from '../data/buildGallery'
 import type { ContentData } from '../data/types'
 import PostCard from '../components/PostCard'
 import GalleryBlock from '../components/GalleryBlock'
@@ -20,6 +22,7 @@ export default function Home({ data }: HomeProps) {
   const rest = posts.filter((p) => p.id !== featured?.id)
   const feedPosts = rest.slice(0, 3)
   const gridPosts = posts.slice(0, 6)
+  const galleryFromPosts = useMemo(() => buildGalleryFromPosts(data.posts), [data.posts])
 
   return (
     <div className={styles.page}>
@@ -59,7 +62,7 @@ export default function Home({ data }: HomeProps) {
       {/* 4. Галерея блок */}
       <section className={styles.gallerySection}>
         <div className="container">
-          <GalleryBlock items={data.gallery} limit={6} />
+          <GalleryBlock items={galleryFromPosts} limit={6} lang={lang} />
         </div>
       </section>
 

@@ -39,7 +39,7 @@ export default function PostCard({ post, variant = 'grid' }: PostCardProps) {
       <div className={styles.content}>
         <div className={styles.meta}>
           <time dateTime={post.date}>{new Date(post.date).toLocaleDateString(lang === 'ru' ? 'ru-RU' : lang === 'de' ? 'de-DE' : 'en-GB', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
-          {post.location?.city && <span className={styles.location}>{post.location.city}</span>}
+          {post.location?.city && <span className={styles.location}>{getLocalized(post.location.city, lang)}</span>}
         </div>
         <h2 className={styles.title}>
           <Link to={`/posts/${post.id}`}>{title}</Link>

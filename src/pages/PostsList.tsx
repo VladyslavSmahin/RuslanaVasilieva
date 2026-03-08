@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react'
+import { useMemo, useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { getLocalized } from '../utils/lang'
 import type { ContentData, Post } from '../data/types'
@@ -24,7 +24,10 @@ function filterPosts(
       const body = getLocalized(p.body, lang).toLowerCase()
       const excerpt = getLocalized(p.excerpt, lang).toLowerCase()
       const tags = p.tags?.join(' ').toLowerCase() ?? ''
-      const loc = [p.location?.city, p.location?.country].filter(Boolean).join(' ').toLowerCase()
+      const loc = [
+        p.location ? getLocalized(p.location.city, lang) : '',
+        p.location ? getLocalized(p.location.country, lang) : '',
+      ].filter(Boolean).join(' ').toLowerCase()
       return [title, body, excerpt, tags, loc].some((s) => s.includes(q))
     })
   }
@@ -34,8 +37,9 @@ function filterPosts(
   if (locationFilter) {
     out = out.filter(
       (p) =>
-        p.location?.city === locationFilter ||
-        p.location?.country === locationFilter
+        p.location &&
+        (getLocalized(p.location.city, lang) === locationFilter ||
+          getLocalized(p.location.country, lang) === locationFilter)
     )
   }
   return out
@@ -48,6 +52,10 @@ export default function PostsList({ data }: PostsListProps) {
   const [tagFilter, setTagFilter] = useState('')
   const [locationFilter, setLocationFilter] = useState('')
 
+  useEffect(() => {
+    setLocationFilter('')
+  }, [lang])
+
   const allTags = useMemo(() => {
     const set = new Set<string>()
     data.posts.forEach((p) => p.tags?.forEach((t) => set.add(t)))
@@ -57,11 +65,13 @@ export default function PostsList({ data }: PostsListProps) {
   const allLocations = useMemo(() => {
     const set = new Set<string>()
     data.posts.forEach((p) => {
-      if (p.location?.city) set.add(p.location.city)
-      if (p.location?.country) set.add(p.location.country)
+      if (p.location) {
+        set.add(getLocalized(p.location.city, lang))
+        set.add(getLocalized(p.location.country, lang))
+      }
     })
     return Array.from(set).sort()
-  }, [data.posts])
+  }, [data.posts, lang])
 
   const sorted = useMemo(
     () =>

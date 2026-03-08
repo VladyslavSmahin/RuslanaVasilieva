@@ -2,6 +2,11 @@ export type Lang = 'ru' | 'en' | 'de'
 
 export type Multilang<T extends string> = Record<Lang, T>
 
+export type LocationMultilang = {
+  city: Multilang<string>
+  country: Multilang<string>
+}
+
 export interface Post {
   id: string
   type: 'article' | 'articleWithPhotos'
@@ -10,16 +15,17 @@ export interface Post {
   body: Multilang<string>
   images: string[]
   tags: string[]
-  location: { city: string; country: string }
+  location: LocationMultilang
   date: string
   featured: boolean
 }
 
-export interface GalleryItem {
+/** Элемент галереи, собранный из постов (первоисточник — посты). */
+export interface GalleryItemFromPost {
   id: string
   src: string
   alt: Multilang<string>
-  location: { city: string; country: string }
+  location: LocationMultilang
   postId: string
 }
 
@@ -35,5 +41,4 @@ export interface ContentMeta {
 export interface ContentData {
   meta: ContentMeta
   posts: Post[]
-  gallery: GalleryItem[]
 }
