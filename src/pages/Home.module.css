@@ -1,0 +1,80 @@
+.page {
+  padding-bottom: 2rem;
+}
+
+.sectionTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--color-text-muted);
+}
+
+.feed {
+  padding: 2rem 0 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.feedList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .feedList { gap: 1.25rem; }
+}
+
+.allLink {
+  margin-top: 1.25rem;
+}
+
+.allLink a {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.featured {
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.about {
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.aboutText {
+  max-width: 60ch;
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+}
+
+.gallerySection {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.gridSection {
+  padding: 2rem 0;
+}
+
+.postGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .postGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .postGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

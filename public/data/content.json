@@ -1,0 +1,71 @@
+{
+  "meta": {
+    "siteName": {
+      "ru": "Личный бред",
+      "en": "Personal Ramblings",
+      "de": "Persönliches Geschwafel"
+    },
+    "aboutMe": {
+      "ru": "Руслана Васильева — журналист и путешественник. Обзор красивых мест Евразии, истории из поездок и фото-впечатления.",
+      "en": "Ruslana Vasilieva — journalist and traveller. Reviews of beautiful places in Eurasia, travel stories and photo reports.",
+      "de": "Ruslana Vasilieva — Journalistin und Reisende. Eindrücke von schönen Orten in Eurasien, Reisegeschichten und Fotoreportagen."
+    },
+    "contacts": {
+      "email": "hello@example.com",
+      "social": [
+        { "id": "telegram", "url": "https://t.me/example", "label": "Telegram" },
+        { "id": "instagram", "url": "https://instagram.com/example", "label": "Instagram" }
+      ]
+    }
+  },
+  "posts": [
+    {
+      "id": "alps-autumn",
+      "type": "articleWithPhotos",
+      "title": { "ru": "Альпы осенью", "en": "Alps in Autumn", "de": "Alpen im Herbst" },
+      "excerpt": { "ru": "Короткая поездка в горы: цвета, воздух и тишина.", "en": "A short trip to the mountains: colours, air and silence.", "de": "Kurze Fahrt in die Berge: Farben, Luft und Stille." },
+      "body": { "ru": "Осень в Альпах — это не только лыжи. Листва горит жёлтым и красным, тропы пусты, а с вершин видно полмира. Мы проехали несколько долин за пару дней и остановились в маленькой деревне, где по утрам из трубы пахло свежим хлебом. Если соберётесь — берите тёплую куртку и удобную обувь: погода меняется за полчаса.", "en": "Autumn in the Alps isn't just about skiing. The foliage blazes yellow and red, the trails are empty, and from the peaks you can see half the world. We drove through several valleys in a couple of days and stayed in a small village where the smell of fresh bread came from the chimney in the morning. If you go — bring a warm jacket and comfortable shoes: the weather changes in half an hour.", "de": "Herbst in den Alpen ist nicht nur Skifahren. Das Laub leuchtet gelb und rot, die Wege sind leer, und von den Gipfeln sieht man die halbe Welt. Wir fuhren in ein paar Tagen durch mehrere Täler und blieben in einem kleinen Dorf, wo morgens frisches Brot aus dem Schornstein roch. Wenn Sie fahren — nehmen Sie eine warme Jacke und bequeme Schuhe mit: Das Wetter wechselt in einer halben Stunde." },
+      "images": [
+        "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200",
+        "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200"
+      ],
+      "tags": ["природа", "горы", "Европа"],
+      "location": { "city": "Швейцарские Альпы", "country": "Швейцария" },
+      "date": "2024-10-15",
+      "featured": true
+    },
+    {
+      "id": "istanbul-bazaar",
+      "type": "article",
+      "title": { "ru": "Гранд-базар в Стамбуле", "en": "Grand Bazaar in Istanbul", "de": "Großer Basar in Istanbul" },
+      "excerpt": { "ru": "Как не потеряться и что попробовать в одном из старейших крытых рынков мира.", "en": "How not to get lost and what to try at one of the world's oldest covered markets.", "de": "Wie man sich nicht verläuft und was man auf einem der ältesten überdachten Märkte der Welt probieren sollte." },
+      "body": { "ru": "Гранд-базар — это лабиринт. Запахи специй, звон посуды, разговоры на десятке языков. Совет: заходите с одной из боковых улиц, а не с главного входа — меньше толпа. Обязательно попробуйте турецкий чай и лукум в маленькой лавке у фонтана. Торговаться можно и нужно, но вежливо.", "en": "The Grand Bazaar is a labyrinth. Spice smells, clinking crockery, conversations in a dozen languages. Tip: enter from one of the side streets, not the main gate — fewer crowds. Be sure to try Turkish tea and lokum at a small shop by the fountain. Haggling is possible and expected, but keep it polite.", "de": "Der Große Basar ist ein Labyrinth. Gewürzgerüche, klirrendes Geschirr, Gespräche in einem Dutzend Sprachen. Tipp: Betreten Sie ihn von einer der Seitenstraßen, nicht vom Haupteingang — weniger Gedränge. Probieren Sie unbedingt türkischen Tee und Lokum in einem kleinen Laden am Brunnen. Feilschen ist möglich und erwartet, aber höflich." },
+      "images": [],
+      "tags": ["город", "Турция", "еда"],
+      "location": { "city": "Стамбул", "country": "Турция" },
+      "date": "2024-09-01",
+      "featured": false
+    },
+    {
+      "id": "caucasus-lakes",
+      "type": "articleWithPhotos",
+      "title": { "ru": "Озёра Кавказа", "en": "Caucasus Lakes", "de": "Kaukasus-Seen" },
+      "excerpt": { "ru": "Неделя в горах: походы, палатки и вода цвета бирюзы.", "en": "A week in the mountains: hikes, tents and turquoise water.", "de": "Eine Woche in den Bergen: Wanderungen, Zelte und türkisfarbenes Wasser." },
+      "body": { "ru": "Мы шли три дня до первого озера. Высота давала о себе знать, но вид с перевала того стоил. Вода в озёрах — ледниковая, прозрачная, невероятного оттенка. Ночью звёзды кажутся в два раза ближе. Совет: берите тёплый спальник и не забывайте про дождевик — погода в горах непредсказуема.", "en": "We walked three days to the first lake. The altitude made itself felt, but the view from the pass was worth it. The water in the lakes is glacial, clear, an incredible shade. At night the stars seem twice as close. Tip: bring a warm sleeping bag and don't forget a raincoat — mountain weather is unpredictable.", "de": "Drei Tage liefen wir zum ersten See. Die Höhe machte sich bemerkbar, aber der Blick vom Pass war es wert. Das Wasser in den Seen ist Gletscherwasser, klar, in unglaublichem Farbton. Nachts wirken die Sterne doppelt so nah. Tipp: Nehmen Sie einen warmen Schlafsack mit und vergessen Sie die Regenjacke nicht — das Wetter in den Bergen ist unberechenbar." },
+      "images": [
+        "https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?w=1200",
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200"
+      ],
+      "tags": ["природа", "горы", "Россия"],
+      "location": { "city": "Кавказ", "country": "Россия" },
+      "date": "2024-08-20",
+      "featured": false
+    }
+  ],
+  "gallery": [
+    { "id": "g1", "src": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200", "alt": { "ru": "Горный пейзаж", "en": "Mountain view", "de": "Bergblick" }, "location": { "city": "Альпы", "country": "Швейцария" }, "postId": "alps-autumn" },
+    { "id": "g2", "src": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1200", "alt": { "ru": "Вершина", "en": "Summit", "de": "Gipfel" }, "location": { "city": "Альпы", "country": "Швейцария" }, "postId": "alps-autumn" },
+    { "id": "g3", "src": "https://images.unsplash.com/photo-1682687220742-aba13b6e50ba?w=1200", "alt": { "ru": "Озеро в горах", "en": "Mountain lake", "de": "Bergsee" }, "location": { "city": "Кавказ", "country": "Россия" }, "postId": "caucasus-lakes" },
+    { "id": "g4", "src": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200", "alt": { "ru": "Тропа", "en": "Trail", "de": "Wanderweg" }, "location": { "city": "Кавказ", "country": "Россия" }, "postId": "caucasus-lakes" }
+  ]
+}

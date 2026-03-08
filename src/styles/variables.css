@@ -1,0 +1,91 @@
+/* Lora + Source Sans 3 via Google Fonts – link in index.html */
+:root {
+  --font-heading: 'Lora', Georgia, serif;
+  --font-body: 'Source Sans 3', system-ui, sans-serif;
+
+  --color-bg: #fff;
+  --color-surface: #fafafa;
+  --color-text: #1a1a1a;
+  --color-text-muted: #555;
+  --color-border: #1a1a1a;
+  --color-accent: #1a1a1a;
+  --color-link: #1a1a1a;
+  --color-link-hover: #333;
+}
+
+[data-theme='dark'] {
+  --color-bg: #111;
+  --color-surface: #1a1a1a;
+  --color-text: #f0f0f0;
+  --color-text-muted: #aaa;
+  --color-border: #f0f0f0;
+  --color-accent: #f0f0f0;
+  --color-link: #e0e0e0;
+  --color-link-hover: #fff;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+a {
+  color: var(--color-link);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-link-hover);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+}
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .container { padding: 0 2rem; }
+}
