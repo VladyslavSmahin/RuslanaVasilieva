@@ -1,0 +1,71 @@
+.cover {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  /* Лёгкий градиент, чтобы размытие стекла было видно (на чистом чёрном blur не виден) */
+  background: radial-gradient(ellipse 80% 50% at 50% 50%, #1a1a1a 0%, #0a0a0a 50%, #000 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.6s ease-out;
+}
+
+.cover.fadeOut {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Glass: матовое стекло с размытием фона */
+.glass {
+  position: relative;
+  padding: 2rem 3rem;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+/* Отражение на стекле — проходит слева направо (эффект glass) */
+.glass::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 40%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.05) 25%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.05) 75%,
+    transparent 100%
+  );
+  animation: glassReflection 2s ease-in-out 0.3s forwards;
+  pointer-events: none;
+}
+
+@keyframes glassReflection {
+  from {
+    transform: translateX(-120%);
+  }
+  to {
+    transform: translateX(320%);
+  }
+}
+
+.name {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 8vw, 4rem);
+  font-weight: 400;
+  color: #fff;
+  letter-spacing: 0.02em;
+  margin: 0;
+}

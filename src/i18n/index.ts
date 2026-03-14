@@ -9,8 +9,8 @@ const resources = {
       home: {
         featured: 'Главный пост',
         about: 'Обо мне',
-        morePosts: 'Ещё посты',
-        allPosts: 'Все посты',
+        morePostsDescription: 'Недавние записи из поездок и впечатления.',
+        viewAllPosts: 'Смотреть все посты',
         toGallery: 'В галерею',
       },
       posts: { search: 'Поиск...', filter: 'Фильтр', all: 'Все', noResults: 'Ничего не найдено' },
@@ -27,8 +27,8 @@ const resources = {
       home: {
         featured: 'Featured post',
         about: 'About me',
-        morePosts: 'More posts',
-        allPosts: 'All posts',
+        morePostsDescription: 'Recent travel notes and impressions.',
+        viewAllPosts: 'View all posts',
         toGallery: 'To gallery',
       },
       posts: { search: 'Search...', filter: 'Filter', all: 'All', noResults: 'No results' },
@@ -45,8 +45,8 @@ const resources = {
       home: {
         featured: 'Hauptbeitrag',
         about: 'Über mich',
-        morePosts: 'Weitere Beiträge',
-        allPosts: 'Alle Beiträge',
+        morePostsDescription: 'Aktuelle Reiseeindrücke und Notizen.',
+        viewAllPosts: 'Alle Beiträge ansehen',
         toGallery: 'Zur Galerie',
       },
       posts: { search: 'Suchen...', filter: 'Filter', all: 'Alle', noResults: 'Nichts gefunden' },

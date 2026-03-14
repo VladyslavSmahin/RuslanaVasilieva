@@ -19,25 +19,15 @@ export default function Home({ data }: HomeProps) {
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   )
   const featured = posts.find((p) => p.featured) ?? posts[0]
-  const rest = posts.filter((p) => p.id !== featured?.id)
-  const feedPosts = rest.slice(0, 3)
   const gridPosts = posts.slice(0, 6)
   const galleryFromPosts = useMemo(() => buildGalleryFromPosts(data.posts), [data.posts])
 
   return (
     <div className={styles.page}>
-      {/* 1. Lenta poстов сверху */}
-      <section className={styles.feed}>
+      {/* 1. Галерея — первый блок */}
+      <section className={styles.gallerySection}>
         <div className="container">
-          <h2 className={styles.sectionTitle}>{t('home.morePosts')}</h2>
-          <div className={styles.feedList}>
-            {feedPosts.map((post) => (
-              <PostCard key={post.id} post={post} variant="feed" />
-            ))}
-          </div>
-          <div className={styles.allLink}>
-            <Link to="/posts">{t('home.allPosts')}</Link>
-          </div>
+          <GalleryBlock items={galleryFromPosts} limit={6} lang={lang} />
         </div>
       </section>
 
@@ -49,35 +39,28 @@ export default function Home({ data }: HomeProps) {
         </div>
       </section>
 
-      {/* 3. Обо мне */}
+      {/* 3. Посты — сетка карточек */}
+      <section className={styles.postsSection}>
+        <div className="container">
+          <h2 className={styles.sectionTitle}>
+            <Link to="/posts" className={styles.titleLink}>{t('home.viewAllPosts')}</Link>
+          </h2>
+          <p className={styles.sectionDesc}>{t('home.morePostsDescription')}</p>
+          <div className={styles.postsGrid}>
+            {gridPosts.map((post) => (
+              <PostCard key={post.id} post={post} variant="grid" />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Обо мне */}
       <section className={styles.about}>
         <div className="container">
           <h2 className={styles.sectionTitle}>{t('home.about')}</h2>
           <p className={styles.aboutText}>
             {getLocalized(data.meta.aboutMe, lang)}
           </p>
-        </div>
-      </section>
-
-      {/* 4. Галерея блок */}
-      <section className={styles.gallerySection}>
-        <div className="container">
-          <GalleryBlock items={galleryFromPosts} limit={6} lang={lang} />
-        </div>
-      </section>
-
-      {/* 5. Сетка превью постов */}
-      <section className={styles.gridSection}>
-        <div className="container">
-          <h2 className={styles.sectionTitle}>{t('home.morePosts')}</h2>
-          <div className={styles.postGrid}>
-            {gridPosts.map((post) => (
-              <PostCard key={post.id} post={post} variant="grid" />
-            ))}
-          </div>
-          <div className={styles.allLink}>
-            <Link to="/posts">{t('home.allPosts')}</Link>
-          </div>
         </div>
       </section>
     </div>

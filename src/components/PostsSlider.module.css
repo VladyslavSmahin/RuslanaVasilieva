@@ -1,0 +1,156 @@
+.section {
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.sectionTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--color-text-muted);
+}
+
+/* На всю ширину экрана и на адаптиве */
+.sliderWrap {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  user-select: none;
+}
+
+@media (pointer: fine) {
+  .sliderWrap {
+    cursor: grab;
+  }
+  .sliderWrap:active {
+    cursor: grabbing;
+  }
+}
+
+.slider {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
+  padding-bottom: 0.5rem;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.slider::-webkit-scrollbar {
+  display: none;
+}
+
+.sliderTrack {
+  display: flex;
+  gap: 1rem;
+  padding-left: calc(50% - min(160px, 42.5vw));
+  padding-right: calc(50% - min(160px, 42.5vw));
+  box-sizing: border-box;
+}
+
+.slide {
+  flex: 0 0 min(320px, 85vw);
+  width: min(320px, 85vw);
+  height: 380px;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  min-width: 0;
+  transform: scale(0.8);
+  transform-origin: center center;
+  transition: transform 0.4s ease-out;
+}
+
+.slideCentral {
+  transform: scale(1);
+}
+
+.slide > * {
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: 1.25rem;
+  cursor: pointer;
+  border-radius: 6px;
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: box-shadow 0.2s, background 0.2s;
+}
+
+[data-theme='dark'] .btn {
+  box-shadow:
+    0 1px 4px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.btn:hover:not(:disabled) {
+  background: var(--color-surface);
+  box-shadow:
+    0 2px 5px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.dots {
+  display: flex;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.dot,
+.dotActive {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  padding: 0;
+  border: none;
+  background: var(--color-text-muted);
+  cursor: pointer;
+}
+
+.dot:hover {
+  background: var(--color-text);
+}
+
+.dotActive {
+  background: var(--color-text);
+  transform: scale(1.2);
+}
+
+.allLink {
+  margin-top: 1.25rem;
+}
+
+.allLink a {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
