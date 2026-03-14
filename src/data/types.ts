@@ -13,7 +13,8 @@ export interface Post {
   title: Multilang<string>
   excerpt: Multilang<string>
   body: Multilang<string>
-  images: string[]
+  /** URL фото: из манифеста (папка = id поста в public/images/) или из JSON. После загрузки всегда заполнено в приложении. */
+  images?: string[]
   tags: string[]
   location: LocationMultilang
   date: string

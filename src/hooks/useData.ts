@@ -1,7 +1,15 @@
 import { useState, useEffect } from 'react'
 import type { ContentData } from '../data/types'
+import type { Post } from '../data/types'
+import { imageManifest } from '../data/image-manifest.generated'
 
 const CONTENT_URL = '/data/content.json'
+
+function mergePostImages(post: Post): Post {
+  const key = post.id.toLowerCase()
+  const images = imageManifest[key] ?? post.images ?? []
+  return { ...post, images }
+}
 
 export function useData(): { data: ContentData | null; loading: boolean; error: Error | null } {
   const [data, setData] = useState<ContentData | null>(null)
@@ -10,11 +18,11 @@ export function useData(): { data: ContentData | null; loading: boolean; error: 
 
   useEffect(() => {
     fetch(CONTENT_URL)
-      .then((res) => {
-        if (!res.ok) throw new Error('Failed to load content')
-        return res.json()
+      .then((r) => (r.ok ? r.json() : Promise.reject(new Error('Failed to load content'))))
+      .then((content: ContentData) => {
+        const posts = content.posts.map((p) => mergePostImages(p))
+        setData({ ...content, posts })
       })
-      .then(setData)
       .catch(setError)
       .finally(() => setLoading(false))
   }, [])
