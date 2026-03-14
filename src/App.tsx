@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import { useData } from './hooks/useData'
 import Layout from './components/Layout'
 import SplashCover from './components/SplashCover'
@@ -7,6 +7,14 @@ import Home from './pages/Home'
 import PostsList from './pages/PostsList'
 import PostPage from './pages/PostPage'
 import GalleryPage from './pages/GalleryPage'
+
+function ScrollToTop() {
+  const { pathname } = useLocation()
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
+  return null
+}
 
 function App() {
   const [showSplash, setShowSplash] = useState(true)
@@ -46,6 +54,7 @@ function App() {
 
   return (
     <Layout data={data}>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home data={data} />} />
         <Route path="/posts" element={<PostsList data={data} />} />
