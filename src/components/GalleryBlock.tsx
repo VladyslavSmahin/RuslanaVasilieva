@@ -22,8 +22,16 @@ interface GalleryBlockProps {
 
 const ROTATE_MS = 5000
 const ANIM_MS = 500
+const PRELOAD_COUNT = 30
 
 type Animating = { slot: number; oldItem: GalleryItemFromPost; newItem: GalleryItemFromPost }
+
+function preloadImages(items: GalleryItemFromPost[], maxCount: number) {
+  items.slice(0, maxCount).forEach((item) => {
+    const img = new Image()
+    img.src = item.src
+  })
+}
 
 export default function GalleryBlock({ items, limit = 6, lang }: GalleryBlockProps) {
   const { t } = useTranslation()
@@ -38,6 +46,19 @@ export default function GalleryBlock({ items, limit = 6, lang }: GalleryBlockPro
 
   useEffect(() => {
     if (items.length === 0) return
+    preloadImages(items, Math.min(items.length, PRELOAD_COUNT))
+  }, [items])
+
+  useEffect(() => {
+    if (displayed.length === 0) return
+    displayed.forEach((item) => {
+      const img = new Image()
+      img.src = item.src
+    })
+  }, [displayed])
+
+  useEffect(() => {
+    if (items.length === 0) return
     const id = setInterval(() => {
       const current = displayedRef.current
       const slot = slotRef.current % Math.max(1, limit)
@@ -48,8 +69,13 @@ export default function GalleryBlock({ items, limit = 6, lang }: GalleryBlockPro
         return
       }
       const newItem = available[Math.floor(Math.random() * available.length)]
-      setAnimating({ slot, oldItem, newItem })
       slotRef.current = (slotRef.current + 1) % Math.max(1, limit)
+      const img = new Image()
+      img.src = newItem.src
+      img.decode().then(
+        () => setAnimating({ slot, oldItem, newItem }),
+        () => setAnimating({ slot, oldItem, newItem })
+      )
     }, ROTATE_MS)
     return () => clearInterval(id)
   }, [items, limit])
