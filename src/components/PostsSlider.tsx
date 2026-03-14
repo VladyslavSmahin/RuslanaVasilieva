@@ -117,7 +117,7 @@ export default function PostsSlider({ posts }: PostsSliderProps) {
       const m = getTrackMetrics()
       if (m) {
         const index = Math.round((viewportCenter - m.paddingLeft - m.slideWidth / 2) / m.step)
-        setCentralIndex((prev) => Math.min(posts.length - 1, Math.max(0, index)))
+        setCentralIndex(Math.min(posts.length - 1, Math.max(0, index)))
       }
     }
     const t = setTimeout(onUpdate, 0)
